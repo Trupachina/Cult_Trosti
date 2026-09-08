@@ -340,22 +340,36 @@ h1, h2, h3, .hero__title, .section-heading h2, .project-card__copy h3, .contacts
 }
 
 .marquee {
+  position: relative;
+  width: 100%;
   overflow: hidden;
   margin-top: 22px;
   border-block: 3px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
-  transform: rotate(-1deg) scale(1.01);
 }
-.marquee__track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+.marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeMain 24s linear infinite;
+}
 .marquee__track span {
-  padding: 14px 0;
+  display: block;
+  flex: 0 0 auto;
+  padding: 14px 1.5rem 14px 0;
   font-family: Impact, Haettenschweiler, sans-serif;
   font-size: 24px;
   letter-spacing: .06em;
   white-space: nowrap;
 }
-@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marqueeMain {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
 
 .section-heading {
   display: grid;
