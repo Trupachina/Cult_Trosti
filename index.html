@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f1e2c8">
   <meta name="description" content="Культ Трости — интерактивный фестивальный стенд с активностями, играми и мерчом.">
   <title>Культ Трости — интерактивный стенд</title>
@@ -80,10 +80,10 @@
         </div>
 
         <div class="hero-pills reveal" aria-label="Что есть на стенде">
-          <span><b>01</b> АРКАДНЫЙ АВТОМАТ</span>
-          <span><b>02</b> РИСОВАНИЕ</span>
-          <span><b>03</b> ИНТЕРАКТИВЫ</span>
-          <span><b>04</b> МЕРЧ</span>
+          <a href="#activity-arcade"><b>01</b> АРКАДНЫЙ АВТОМАТ</a>
+          <a href="#activity-drawing"><b>02</b> РИСОВАНИЕ</a>
+          <a href="#activity-interactive"><b>03</b> ИНТЕРАКТИВЫ</a>
+          <a href="#activity-merch"><b>04</b> МЕРЧ</a>
         </div>
       </div>
     </section>
@@ -110,12 +110,12 @@
           <article class="about-copy neo-card neo-card--blue reveal">
             <p class="big-copy">ИГРАТЬ. РИСОВАТЬ. УЧАСТВОВАТЬ. ОБЩАТЬСЯ.</p>
             <p>Мы соединяем разные активности, оформление, игры и мерч в одном месте. У стенда нет задачи быть витриной только одного проекта — для нас важнее общее впечатление и то, что происходит вокруг него.</p>
-            <div class="micro-tags" aria-label="Направления стенда">
-              <span>АКТИВНОСТИ</span>
-              <span>ИГРЫ</span>
-              <span>ОФОРМЛЕНИЕ</span>
-              <span>МЕРЧ</span>
-            </div>
+            <nav class="micro-tags" aria-label="Быстрый переход по направлениям стенда">
+              <a href="#activities">АКТИВНОСТИ</a>
+              <a href="#projects">ИГРЫ</a>
+              <a href="#gallery">ОФОРМЛЕНИЕ</a>
+              <a href="#activity-merch">МЕРЧ</a>
+            </nav>
           </article>
 
           <figure class="photo-card photo-card--wide reveal">
@@ -126,7 +126,7 @@
       </div>
     </section>
 
-    <section class="activities section" aria-labelledby="activities-title">
+    <section class="activities section" id="activities" aria-labelledby="activities-title">
       <div class="shell">
         <div class="section-heading section-heading--row reveal">
           <div>
@@ -137,7 +137,7 @@
         </div>
 
         <div class="activity-grid">
-          <article class="activity-card activity-card--orange reveal" data-tilt-card>
+          <article class="activity-card activity-card--orange reveal" id="activity-arcade" data-tilt-card>
             <div class="activity-card__media"><img src="assets/images/bendy-machine.webp" alt="Аркадный автомат" loading="lazy"></div>
             <div class="activity-card__copy">
               <span class="activity-card__index">01</span>
@@ -146,7 +146,7 @@
             </div>
           </article>
 
-          <article class="activity-card activity-card--pink reveal" data-tilt-card>
+          <article class="activity-card activity-card--pink reveal" id="activity-drawing" data-tilt-card>
             <div class="activity-card__media"><img src="assets/images/draw.webp" alt="Рисование на стенде" loading="lazy"></div>
             <div class="activity-card__copy">
               <span class="activity-card__index">02</span>
@@ -155,7 +155,7 @@
             </div>
           </article>
 
-          <article class="activity-card activity-card--yellow reveal" data-tilt-card>
+          <article class="activity-card activity-card--yellow reveal" id="activity-interactive" data-tilt-card>
             <div class="activity-card__media"><img src="assets/images/tech.webp" alt="Интерактивная активность на стенде" loading="lazy"></div>
             <div class="activity-card__copy">
               <span class="activity-card__index">03</span>
@@ -164,7 +164,7 @@
             </div>
           </article>
 
-          <article class="activity-card activity-card--cream reveal" data-tilt-card>
+          <article class="activity-card activity-card--cream reveal" id="activity-merch" data-tilt-card>
             <div class="activity-card__media"><img src="assets/images/merch-wall.webp" alt="Мерч на стенде" loading="lazy"></div>
             <div class="activity-card__copy">
               <span class="activity-card__index">04</span>
@@ -176,7 +176,7 @@
       </div>
     </section>
 
-    <section class="gallery section" aria-labelledby="gallery-title">
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
       <div class="shell">
         <div class="section-heading section-heading--row reveal">
           <div>
@@ -196,7 +196,7 @@
     </section>
 
 
-    <section class="events section" aria-labelledby="events-title">
+    <section class="events section" id="events" aria-labelledby="events-title">
       <div class="shell">
         <div class="section-heading section-heading--row reveal">
           <div>

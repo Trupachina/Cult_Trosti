@@ -3,6 +3,33 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+
+  function initFixedHeader() {
+    const header = document.querySelector('[data-header]');
+    if (!header) return;
+
+    let frame = 0;
+    const sync = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const height = Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--site-header-space', `${height}px`);
+      });
+    };
+
+    sync();
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(sync);
+      observer.observe(header);
+    } else {
+      window.addEventListener('resize', sync, { passive: true });
+    }
+
+    window.addEventListener('orientationchange', sync, { passive: true });
+    document.fonts?.ready?.then(sync).catch(() => {});
+  }
+
   function initMobileNav() {
     const toggle = document.querySelector('[data-nav-toggle]');
     const nav = document.querySelector('[data-nav]');
@@ -10,12 +37,14 @@
 
     const close = () => {
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Открыть меню');
       nav.classList.remove('is-open');
     };
 
     toggle.addEventListener('click', () => {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Открыть меню' : 'Закрыть меню');
       nav.classList.toggle('is-open', !isOpen);
     });
 
@@ -152,6 +181,7 @@
     });
   }
 
+  initFixedHeader();
   initMobileNav();
   initReveal();
   initSeamlessMarquees();
