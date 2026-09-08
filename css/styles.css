@@ -1318,3 +1318,52 @@ h1, h2, h3, .hero__title, .section-heading h2, .project-card__copy h3, .contacts
 .page--bendy .bendy-cta .bendy-section-no {
   color: #e8c98f;
 }
+
+/* v7: measured, truly seamless marquees on both pages */
+.marquee__track,
+.bendy-ticker__track {
+  display: flex;
+  width: max-content;
+  max-width: none;
+  transform: translate3d(0, 0, 0);
+  animation: none;
+  will-change: transform;
+}
+
+.marquee__group,
+.bendy-ticker__group {
+  display: flex;
+  flex: 0 0 auto;
+  width: max-content;
+}
+
+.marquee__group span,
+.bendy-ticker__group span {
+  display: block;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+}
+
+.marquee__track.is-marquee-ready,
+.bendy-ticker__track.is-marquee-ready {
+  animation: seamlessMarquee var(--marquee-duration, 24s) linear infinite;
+}
+
+.marquee:hover .marquee__track.is-marquee-ready,
+.bendy-ticker:hover .bendy-ticker__track.is-marquee-ready {
+  animation-play-state: paused;
+}
+
+@keyframes seamlessMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(var(--marquee-offset), 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track.is-marquee-ready,
+  .bendy-ticker__track.is-marquee-ready {
+    animation: none !important;
+    transform: none !important;
+  }
+}
